@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Runtime.Serialization;
-using ManyWho.Flow.SDK.Security;
-using ManyWho.Flow.SDK.Draw.Elements.Map;
 
 /*!
 
@@ -21,69 +20,48 @@ permissions and limitations under the License.
 
 */
 
-namespace ManyWho.Flow.SDK.Draw.Flow
+namespace ManyWho.Flow.SDK.Security
 {
     [DataContract(Namespace = "http://www.manywho.com/api")]
-    public class FlowResponseAPI : FlowRequestAPI
+    public class WhoInfoAPI
     {
         [DataMember]
-        public DateTime dateCreated
+        public String id
         {
             get;
             set;
         }
 
         [DataMember]
-        public DateTime dateModified
+        public String firstName
         {
             get;
             set;
         }
 
         [DataMember]
-        public WhoInfoAPI whoCreated
+        public String lastName
         {
             get;
             set;
         }
 
         [DataMember]
-        public WhoInfoAPI whoModified
+        public String email
         {
             get;
             set;
         }
 
         [DataMember]
-        public WhoInfoAPI whoOwner
+        public String username
         {
             get;
             set;
         }
 
         [DataMember]
-        public String alertEmail
-        {
-            get;
-            set;
-        }
-
-        [DataMember]
-        public Boolean isActive
-        {
-            get;
-            set;
-        }
-
-        [DataMember]
-        public Boolean isDefault
-        {
-            get;
-            set;
-        }
-
-        [DataMember]
-        public string comment
+        public String profileId
         {
             get;
             set;

@@ -23,7 +23,7 @@ permissions and limitations under the License.
 namespace ManyWho.Flow.SDK.Security
 {
     [DataContract(Namespace = "http://www.manywho.com/api")]
-    public class BuilderWhoAPI
+    public class TenantProfileAPI
     {
         [DataMember]
         public String id
@@ -33,28 +33,28 @@ namespace ManyWho.Flow.SDK.Security
         }
 
         [DataMember]
-        public String firstName
+        public String developerName
         {
             get;
             set;
         }
 
         [DataMember]
-        public String lastName
+        public String developerSummary
         {
             get;
             set;
         }
 
         [DataMember]
-        public String email
+        public Boolean canManageFlows
         {
             get;
             set;
         }
 
         [DataMember]
-        public String username
+        public Boolean canEditFlows
         {
             get;
             set;

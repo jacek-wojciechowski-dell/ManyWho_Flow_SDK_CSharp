@@ -40,21 +40,21 @@ namespace ManyWho.Flow.SDK.Draw.Elements.Config
         }
 
         [DataMember]
-        public BuilderWhoAPI whoCreated
+        public WhoInfoAPI whoCreated
         {
             get;
             set;
         }
 
         [DataMember]
-        public BuilderWhoAPI whoModified
+        public WhoInfoAPI whoModified
         {
             get;
             set;
         }
 
         [DataMember]
-        public BuilderWhoAPI whoOwner
+        public WhoInfoAPI whoOwner
         {
             get;
             set;
