@@ -91,6 +91,8 @@
     <Compile Include="Run\State\StateListenerRequestAPI.cs" />
     <Compile Include="Run\State\StateListenerResponseAPI.cs" />
     <Compile Include="Run\State\UserVoteAPI.cs" />
+    <Compile Include="Security\DeviceRegistrationAPI.cs" />
+    <Compile Include="Security\DeviceRegistrationResponseAPI.cs" />
     <Compile Include="Security\TenantProfileAPI.cs" />
     <Compile Include="Security\UserRegistrationSettingsAPI.cs" />
     <Compile Include="Tenant\DeleteAllAPI.cs" />
