@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Runtime.Serialization;
-using ManyWho.Flow.SDK.Run.Elements.Map;
-using ManyWho.Flow.SDK.Run.Elements.UI;
+using ManyWho.Flow.SDK.Security;
 
 /*!
 
@@ -22,27 +21,62 @@ permissions and limitations under the License.
 
 */
 
-namespace ManyWho.Flow.SDK.Run.Elements.Config
+namespace ManyWho.Flow.SDK.Tenant
 {
     [DataContract(Namespace = "http://www.manywho.com/api")]
-    public class UIServiceResponseAPI : ServiceResponseAPI
+    public class DeleteRequestAPI
     {
         [DataMember]
-        public PageResponseAPI pageResponse
+        public bool flows
         {
             get;
             set;
         }
 
         [DataMember]
-        public List<OutcomeResponseAPI> outcomeResponses
+        public bool pageLayouts
         {
             get;
             set;
         }
 
         [DataMember]
-        public Boolean isComplete
+        public bool values
+        {
+            get;
+            set;
+        }
+
+        [DataMember]
+        public bool types
+        {
+            get;
+            set;
+        }
+
+        [DataMember]
+        public bool services
+        {
+            get;
+            set;
+        }
+
+        [DataMember]
+        public bool tags
+        {
+            get;
+            set;
+        }
+
+        [DataMember]
+        public bool snapshots
+        {
+            get;
+            set;
+        }
+
+        [DataMember]
+        public bool states
         {
             get;
             set;
