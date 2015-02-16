@@ -21,41 +21,13 @@ permissions and limitations under the License.
 
 */
 
-namespace ManyWho.Flow.SDK.Security
+namespace ManyWho.Flow.SDK.Tenant
 {
     [DataContract(Namespace = "http://www.manywho.com/api")]
-    public class DeviceRegistrationResponseAPI
+    public class DeviceRequestAPI
     {
         [DataMember]
-        public String token
-        {
-            get;
-            set;
-        }
-
-        [DataMember]
-        public String udid
-        {
-            get;
-            set;
-        }
-
-        [DataMember]
-        public String platform
-        {
-            get;
-            set;
-        }
-
-        [DataMember]
-        public String hardware
-        {
-            get;
-            set;
-        }
-
-        [DataMember]
-        public String os
+        public String id
         {
             get;
             set;
