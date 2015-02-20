@@ -33,6 +33,13 @@ namespace ManyWho.Flow.SDK.Run.Elements.Type
         }
 
         [DataMember]
+        public String contentType
+        {
+            get;
+            set;
+        }
+
+        [DataMember]
         public List<ObjectDataTypeAPI> list
         {
             get;
