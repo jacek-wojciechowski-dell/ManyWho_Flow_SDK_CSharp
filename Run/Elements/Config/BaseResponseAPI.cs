@@ -27,6 +27,15 @@ namespace ManyWho.Flow.SDK.Run.Elements.Config
     public class BaseResponseAPI
     {
         /// <summary>
+        /// The unique identifier for the request generating this response. This is not serialized as it's only used for portable implementations.
+        /// </summary>
+        public String requestId
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// The token for this service request.  The token is needed for the service execution manager to identify the correct state.
         /// </summary>
         [DataMember]
