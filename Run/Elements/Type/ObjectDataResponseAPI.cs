@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using ManyWho.Flow.SDK.Utils;
 using ManyWho.Flow.SDK.Run.Elements.Config;
 using ManyWho.Flow.SDK.Translate;
 
@@ -50,6 +52,7 @@ namespace ManyWho.Flow.SDK.Run.Elements.Type
         /// Indicates if there are more results available based on the offset and limit provided
         /// </summary>
         [DataMember]
+        [JsonConverter(typeof(BoolConverter))]
         public Boolean hasMoreResults
         {
             get;

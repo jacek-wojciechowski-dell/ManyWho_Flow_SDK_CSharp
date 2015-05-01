@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using ManyWho.Flow.SDK.Utils;
 
 /*!
 
@@ -39,6 +41,7 @@ namespace ManyWho.Flow.SDK.Run.Elements.Map
         }
 
         [DataMember]
+        [JsonConverter(typeof(BoolConverter))]
         public Boolean isBulkAction
         {
             get;
@@ -53,6 +56,7 @@ namespace ManyWho.Flow.SDK.Run.Elements.Map
         }
 
         [DataMember]
+        [JsonConverter(typeof(BoolConverter))]
         public Boolean isOut
         {
             get;

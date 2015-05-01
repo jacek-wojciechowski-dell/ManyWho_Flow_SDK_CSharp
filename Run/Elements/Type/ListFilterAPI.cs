@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using ManyWho.Flow.SDK.Utils;
 
 /*!
 
@@ -49,6 +51,7 @@ namespace ManyWho.Flow.SDK.Run.Elements.Type
         /// Use the list of provided objects as the filter for the lookup.  This allows us to refresh data that can be transient in the remote system.
         /// </summary>
         [DataMember]
+        [JsonConverter(typeof(BoolConverter))]
         public Boolean filterByProvidedObjects
         {
             get;

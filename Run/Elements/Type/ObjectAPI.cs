@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using ManyWho.Flow.SDK.Utils;
 
 /*!
 
@@ -68,6 +70,7 @@ namespace ManyWho.Flow.SDK.Run.Elements.Type
         }
 
         [DataMember]
+        [JsonConverter(typeof(BoolConverter))]
         public Boolean isSelected
         {
             get;

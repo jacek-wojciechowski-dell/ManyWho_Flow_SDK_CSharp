@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using ManyWho.Flow.SDK.Utils;
 using ManyWho.Flow.SDK.Run.Elements.Type;
 
 /*!
@@ -131,6 +133,7 @@ namespace ManyWho.Flow.SDK.Run.Elements.UI
         }
 
         [DataMember]
+        [JsonConverter(typeof(BoolConverter))]
         public Boolean isMultiSelect
         {
             get;
@@ -138,6 +141,7 @@ namespace ManyWho.Flow.SDK.Run.Elements.UI
         }
 
         [DataMember]
+        [JsonConverter(typeof(BoolConverter))]
         public Boolean isSearchable
         {
             get;
@@ -145,6 +149,7 @@ namespace ManyWho.Flow.SDK.Run.Elements.UI
         }
 
         [DataMember]
+        [JsonConverter(typeof(BoolConverter))]
         public Boolean hasEvents
         {
             get;

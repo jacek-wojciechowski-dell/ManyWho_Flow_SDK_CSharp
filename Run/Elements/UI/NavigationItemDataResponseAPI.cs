@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using ManyWho.Flow.SDK.Utils;
 
 /*!
 
@@ -39,6 +41,7 @@ namespace ManyWho.Flow.SDK.Run.Elements.UI
         }
 
         [DataMember]
+        [JsonConverter(typeof(BoolConverter))]
         public Boolean isActive
         {
             get;
@@ -46,6 +49,7 @@ namespace ManyWho.Flow.SDK.Run.Elements.UI
         }
 
         [DataMember]
+        [JsonConverter(typeof(BoolConverter))]
         public Boolean isCurrent
         {
             get;
@@ -53,6 +57,7 @@ namespace ManyWho.Flow.SDK.Run.Elements.UI
         }
 
         [DataMember]
+        [JsonConverter(typeof(BoolConverter))]
         public Boolean isEnabled
         {
             get;
@@ -60,6 +65,7 @@ namespace ManyWho.Flow.SDK.Run.Elements.UI
         }
 
         [DataMember]
+        [JsonConverter(typeof(BoolConverter))]
         public Boolean isVisible
         {
             get;
