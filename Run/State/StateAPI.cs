@@ -142,5 +142,20 @@ namespace ManyWho.Flow.SDK.Run.State
             get;
             set;
         }
+
+        [DataMember]
+        public Dictionary<String, String> rootFaults
+        {
+            get;
+            set;
+        }
+
+        [DataMember]
+        public List<StateValueFaultAPI> valueFaults
+        {
+            get;
+            set;
+        }
+
     }
 }
