@@ -38,6 +38,13 @@ namespace ManyWho.Flow.SDK.Draw.Elements.Config
         }
 
         [DataMember]
+        public Boolean referenceLatestConfigurationValues
+        {
+            get;
+            set;
+        }
+
+        [DataMember]
         public List<ServiceValueRequestAPI> configurationValues
         {
             get;
