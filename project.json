@@ -10,6 +10,6 @@
         "System.Runtime.Serialization.Primitives": "4.0.10"
       }
     },
-    ".NETPortable,Version=v4.5,Profile=Profile7": { }
+    ".NETPortable,Version=v4.5,Profile=Profile7": {}
   }
 }
