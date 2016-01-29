@@ -67,7 +67,12 @@ namespace ManyWho.Flow.SDK
 
                 foreach (ObjectAPI objectAPI in objectAPIs)
                 {
-                    if (objectAPI.developerName.Equals(typeName, StringComparison.OrdinalIgnoreCase) == false)
+                    // If we have a value element identifier, we need to translate it over
+                    if (type.Name.Equals("ValueElementIdAPI", StringComparison.OrdinalIgnoreCase) == true)
+                    {
+                        type = new ValueElementIdReferenceAPI().GetType();
+                    }
+                    else if (objectAPI.developerName.Equals(typeName, StringComparison.OrdinalIgnoreCase) == false)
                     {
                         throw new ArgumentNullException("ObjectAPI", String.Format("The provided list contains inconsistent objects. The Draw API expected {0} and it got {1}", typeName, objectAPI.developerName));
                     }
@@ -280,7 +285,7 @@ namespace ManyWho.Flow.SDK
             typeElementRequestAPIs[typeElementRequestAPI.developerName] = typeElementRequestAPI;
 
             // Get the properties for the root type
-            foreach (PropertyInfo propertyInfo in type.GetTypeInfo().DeclaredProperties)
+            foreach (PropertyInfo propertyInfo in type.GetRuntimeProperties())
             {
                 TypeElementPropertyAPI typeElementPropertyAPI = Convert(typeElementRequestAPIs, propertyInfo);
                 if (typeElementPropertyAPI != null)
@@ -323,7 +328,7 @@ namespace ManyWho.Flow.SDK
                 objectAPI.externalId = externalId;
                 objectAPI.properties = new List<PropertyAPI>();
 
-                foreach (PropertyInfo propertyInfo in type.GetTypeInfo().DeclaredProperties)
+                foreach (PropertyInfo propertyInfo in type.GetRuntimeProperties())
                 {
                     PropertyAPI propertyAPI = Convert(source, propertyInfo, valueElementIdReferences);
                     if (propertyAPI != null)
@@ -412,10 +417,10 @@ namespace ManyWho.Flow.SDK
 
             if (values != null)
             {
-                foreach (Object objectEntry in values)
-                {
-                    objectAPIs = new List<ObjectAPI>();
+                objectAPIs = new List<ObjectAPI>();
 
+                foreach (Object objectEntry in values)
+                {                    
                     if (objectEntry is ElementAPI)
                     {
                         // Assign the identifier property from the object
@@ -502,8 +507,9 @@ namespace ManyWho.Flow.SDK
             PropertyAPI propertyAPI = null;
             IDictionary value = (IDictionary)propertyInfo.GetValue(source, null);
 
-            if (value != null)
+            if (value != null && !propertyInfo.Name.Equals("attributes", StringComparison.OrdinalIgnoreCase))
             {
+                IEnumerable values = (IEnumerable)propertyInfo.GetValue(source, null);
                 propertyAPI = GetPropertyAPIFromCollection(value.Values, propertyInfo, valueElementIdReferences);
             }
 
@@ -551,6 +557,10 @@ namespace ManyWho.Flow.SDK
             else if (propertyInfo.PropertyType.Name.Equals(typeof(Boolean).Name, StringComparison.OrdinalIgnoreCase) == true)
             {
                 typeElementPropertyAPI.contentType = ManyWhoConstants.CONTENT_TYPE_BOOLEAN;
+            }
+            else if (propertyInfo.PropertyType.GetTypeInfo().IsEnum)
+            {
+                typeElementPropertyAPI.contentType = ManyWhoConstants.CONTENT_TYPE_STRING;
             }
             else
             {
