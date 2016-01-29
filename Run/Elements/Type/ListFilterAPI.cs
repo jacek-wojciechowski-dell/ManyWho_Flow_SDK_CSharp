@@ -112,5 +112,15 @@ namespace ManyWho.Flow.SDK.Run.Elements.Type
             get;
             set;
         }
+
+        /// <summary>
+        /// Static search query parameters that will be appended to every search string
+        /// </summary>
+        [DataMember]
+        public string searchQuery
+        {
+            get;
+            set;
+        }
     }
 }
