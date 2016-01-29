@@ -85,5 +85,12 @@ namespace ManyWho.Flow.SDK.Draw.Util
             get;
             set;
         }
+
+        [DataMember]
+        public string searchQuery
+        {
+            get;
+            set;
+        }
     }
 }
