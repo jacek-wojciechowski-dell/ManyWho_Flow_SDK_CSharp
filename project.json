@@ -1,14 +1,14 @@
-{
-  "version": "1.0.0-*",
+﻿{
+  "supports": {},
   "dependencies": {
-    "Newtonsoft.Json": "8.0.3",
-    "System.Runtime.Serialization.Primitives": "4.0.10",
-    "NETStandard.Library": "1.5.0-rc2-24027",
-    "System.Net.Requests": "4.0.11-rc2-24027"
+    "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
+    "NETStandard.Library": "1.6.0",
+    "Newtonsoft.Json": "9.0.1",
+    "Polly-Signed": "4.5.0-beta-netstandar-0001",
+    "System.Net.Requests": "4.0.11",
+    "System.Runtime.Serialization.Primitives": "4.1.1"
   },
   "frameworks": {
-    "netstandard1.3": {
-      "imports": "dnxcore50"
-    }
+    "netstandard1.1": {}
   }
 }
