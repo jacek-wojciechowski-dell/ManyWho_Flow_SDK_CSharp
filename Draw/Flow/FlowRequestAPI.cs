@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 using ManyWho.Flow.SDK.Draw.Elements.Group;
+using ManyWho.Flow.SDK.Tenant;
 
 
 /*!
@@ -75,6 +76,13 @@ namespace ManyWho.Flow.SDK.Draw.Flow
 
         [DataMember]
         public GroupAuthorizationAPI authorization
+        {
+            get;
+            set;
+        }
+
+        [DataMember]
+        public FlowSettingsAPI overrideSettings
         {
             get;
             set;
