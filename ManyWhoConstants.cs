@@ -166,6 +166,8 @@ namespace ManyWho.Flow.SDK
 
         public static readonly Guid MANYWHO_USER_VALUE_ID = Guid.Parse("03DC41DD-1C6B-4B33-BF61-CBD1D0778FFF");
 
+        public static readonly Guid MANYWHO_GROUPS_AUTHORIZATION_CONTEXT_VALUE_ID = Guid.Parse("7BF95125-F63F-412A-A7E5-02293410D6D6");
+
         public static readonly Guid MANYWHO_TRUE_VALUE_ID = Guid.Parse("BE1BC78E-FD57-40EC-9A86-A815DE2A9E28");
         public const String MANYWHO_TRUE_DEVELOPER_NAME = "$True";
 
@@ -218,13 +220,13 @@ namespace ManyWho.Flow.SDK
 
         public static readonly Guid MANYWHO_GROUP_TYPE_ELEMENT_ID = Guid.Parse("82DE6847-03D6-4ACE-91CC-26CD80AEA9FC");
         public static readonly Guid MANYWHO_GROUP_PROPERTY_ID_GROUP_ID = Guid.Parse("1CADAB68-658C-4F52-972E-FAB83F168D87");
-        public static readonly Guid MANYWHO_GROUP_PROPERTY_ID_GROUP_NAME = Guid.Parse("D04652C0-B87C-400D-BEAC-FBC2420774BC");
-        public static readonly Guid MANYWHO_GROUP_PROPERTY_ID_GROUP_OWNER_USER_ID = Guid.Parse("3B74EB51-74A8-43B3-96EF-FEEB938D35D2");
+        public static readonly Guid MANYWHO_GROUP_PROPERTY_ID_GROUP_ATTRIBUTE = Guid.Parse("D04652C0-B87C-400D-BEAC-FBC2420774BC");
 
         public const String MANYWHO_GROUP_DEVELOPER_NAME = "$Group";
-        public const String MANYWHO_GROUP_PROPERTY_GROUP_ID = "Group ID";
-        public const String MANYWHO_GROUP_PROPERTY_GROUP_NAME = "Group Name";
-        public const String MANYWHO_GROUP_PROPERTY_GROUP_OWNER_USER_ID = "Group Owner User ID";
+        public const String MANYWHO_GROUP_PROPERTY_GROUP_ID = "ID";
+        public const String MANYWHO_GROUP_PROPERTY_GROUP_ATTRIBUTE = "Attribute";
+
+        public const String MANYWHO_GROUPS_AUTHORIZATION_CONTEXT_DEVELOPER_NAME = "$Groups: Authorization Context";
 
         public static readonly string MANYWHO_STATE_DEVELOPER_NAME = "$State";
         public static readonly Guid MANYWHO_STATE_VALUE_ID = Guid.Parse("1F2A56FD-E14B-460C-AABD-9FBF344B84F3");
