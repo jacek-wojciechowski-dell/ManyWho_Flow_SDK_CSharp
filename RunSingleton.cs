@@ -55,8 +55,7 @@ namespace ManyWho.Flow.SDK
         }
 
         public static RunSingleton GetInstance(String serviceUrl)
-<<<<<<< HEAD
-       {
+        {
            if (run == null)
            {
                run = new RunSingleton();
@@ -66,10 +65,10 @@ namespace ManyWho.Flow.SDK
            run.ServiceUrl = serviceUrl;
 
            return run;
-       }
+        }
 
-       public static RunSingleton GetInstance()
-       {
+        public static RunSingleton GetInstance()
+        {
            if (run == null)
            {
                run = new RunSingleton();
@@ -79,9 +78,9 @@ namespace ManyWho.Flow.SDK
            run.ServiceUrl = MANYWHO_BASE_URL;
 
            return run;
-       }
+        }
 
-       public string DispatchStateListenerResponse(INotifier notifier, IAuthenticatedWho authenticatedWho, String callbackUri, ListenerServiceResponseAPI listenerServiceResponse)
+        public string DispatchStateListenerResponse(INotifier notifier, IAuthenticatedWho authenticatedWho, String callbackUri, ListenerServiceResponseAPI listenerServiceResponse)
         {
             HttpClient httpClient = null;
             HttpContent httpContent = null;
