@@ -55,6 +55,7 @@ namespace ManyWho.Flow.SDK
         }
 
         public static RunSingleton GetInstance(String serviceUrl)
+<<<<<<< HEAD
        {
            if (run == null)
            {
@@ -80,28 +81,38 @@ namespace ManyWho.Flow.SDK
            return run;
        }
 
-       public void DispatchStateListenerResponse(INotifier notifier, IAuthenticatedWho authenticatedWho, String callbackUri, ListenerServiceResponseAPI listenerServiceResponse)
-       {
-           HttpClient httpClient = null;
-           HttpContent httpContent = null;
-           HttpResponseMessage httpResponseMessage = null;
-           
-           using (httpClient = HttpUtils.CreateHttpClient(authenticatedWho, authenticatedWho.ManyWhoTenantId.ToString(), null))
-           {
-               // Use the JSON formatter to create the content of the request body
-               httpContent = new StringContent(JsonConvert.SerializeObject(listenerServiceResponse));
-               httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+       public string DispatchStateListenerResponse(INotifier notifier, IAuthenticatedWho authenticatedWho, String callbackUri, ListenerServiceResponseAPI listenerServiceResponse)
+        {
+            HttpClient httpClient = null;
+            HttpContent httpContent = null;
+            HttpResponseMessage httpResponseMessage = null;
+            string invokeResponse = null;
 
-               // Post the authentication request over to ManyWho
-               httpResponseMessage = httpClient.PostAsync(callbackUri, httpContent).Result;
+            Policy.Handle<ServiceProblemException>().Retry(HttpUtils.MAXIMUM_RETRIES).Execute(() =>
+            {
+                using (httpClient = HttpUtils.CreateHttpClient(authenticatedWho, authenticatedWho.ManyWhoTenantId.ToString(), null))
+                {
+                    // Use the JSON formatter to create the content of the request body
+                    httpContent = new StringContent(JsonConvert.SerializeObject(listenerServiceResponse));
+                    httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-               // Check the status of the response and respond appropriately
-               if (!httpResponseMessage.IsSuccessStatusCode)
-               {
-                   throw new ServiceProblemException(new ServiceProblem(callbackUri, httpResponseMessage, string.Empty));
-               }
-           }
-       }
+                    // Post the authentication request over to ManyWho
+                    httpResponseMessage = httpClient.PostAsync(callbackUri, httpContent).Result;
+
+                    // Check the status of the response and respond appropriately
+                    if (httpResponseMessage.IsSuccessStatusCode)
+                    {
+                        invokeResponse = JsonConvert.DeserializeObject<string>(httpResponseMessage.Content.ReadAsStringAsync().Result);
+                    }
+                    else
+                    {
+                        throw new ServiceProblemException(new ServiceProblem(callbackUri, httpResponseMessage, string.Empty));
+                    }
+                }
+            });
+
+            return invokeResponse;
+        }
 
         public String Login(INotifier notifier, String tenantId, String stateId, AuthenticationCredentialsAPI authenticationCredentials)
         {
